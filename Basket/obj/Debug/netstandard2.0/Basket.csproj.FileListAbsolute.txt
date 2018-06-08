@@ -1,0 +1,9 @@
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\Basket.deps.json
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\Basket.dll
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\Basket.pdb
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.csprojResolveAssemblyReference.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.csproj.CoreCompileInputs.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.AssemblyInfoInputs.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.AssemblyInfo.cs
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.dll
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\Basket.pdb

@@ -1,0 +1,9 @@
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.csprojResolveAssemblyReference.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.csproj.CoreCompileInputs.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.AssemblyInfoInputs.cache
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.AssemblyInfo.cs
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.deps.json
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.dll
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.pdb
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.dll
+c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.pdb
