@@ -186,11 +186,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\Users\\chanuka weerasinghe\\Source\\Repos\\KartApp\\Basket\\ShoppingBasket.csproj",
+      "projectUniqueName": "D:\\Boewe\\KartApp\\Basket\\ShoppingBasket.csproj",
       "projectName": "ShoppingBasket",
-      "projectPath": "c:\\Users\\chanuka weerasinghe\\Source\\Repos\\KartApp\\Basket\\ShoppingBasket.csproj",
+      "projectPath": "D:\\Boewe\\KartApp\\Basket\\ShoppingBasket.csproj",
       "packagesPath": "C:\\Users\\Chanuka Weerasinghe\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\chanuka weerasinghe\\Source\\Repos\\KartApp\\Basket\\obj\\",
+      "outputPath": "D:\\Boewe\\KartApp\\Basket\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

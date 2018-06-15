@@ -46,3 +46,7 @@ c:\Users\chanuka weerasinghe\Source\Repos\KartApp\ShoppingAPI\obj\Debug\Shopping
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.csproj.CoreCompileInputs.cache
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.dll
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.pdb
+D:\Boewe\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.csprojResolveAssemblyReference.cache
+D:\Boewe\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.csproj.CoreCompileInputs.cache
+D:\Boewe\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.dll
+D:\Boewe\KartApp\ShoppingAPI\obj\Debug\ShoppingAPI.pdb

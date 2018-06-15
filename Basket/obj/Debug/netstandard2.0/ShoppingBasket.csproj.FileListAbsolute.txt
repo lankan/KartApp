@@ -7,3 +7,12 @@ c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.pdb
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.dll
 c:\Users\chanuka weerasinghe\Source\Repos\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.pdb
+D:\Boewe\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.deps.json
+D:\Boewe\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.dll
+D:\Boewe\KartApp\Basket\bin\Debug\netstandard2.0\ShoppingBasket.pdb
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.csprojResolveAssemblyReference.cache
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.csproj.CoreCompileInputs.cache
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.AssemblyInfoInputs.cache
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.AssemblyInfo.cs
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.dll
+D:\Boewe\KartApp\Basket\obj\Debug\netstandard2.0\ShoppingBasket.pdb
