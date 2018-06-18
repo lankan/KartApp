@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ShoppingBasket;
+using ShoppingBasket.Models;
 
 namespace ShoppingAPI.Models
 {
@@ -19,7 +21,10 @@ namespace ShoppingAPI.Models
         [Required]
         public decimal Price { get; set; }
 
+        public Guid ProductId { get; set; }
+
         [Required]
         public int Quantity { get; set; }
-    }
+
+  }
 }

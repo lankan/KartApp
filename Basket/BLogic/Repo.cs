@@ -31,6 +31,11 @@ namespace ShoppingBasket.Logic
             }
         }
 
+        public Kart CreateBasket()
+        {
+            throw new NotImplementedException();
+        }
+
         public Kart CreateBasket(Kart basket)
         {
             try
@@ -58,7 +63,10 @@ namespace ShoppingBasket.Logic
 
                 var basket = _baskets[index];
 
-                basket.Products.AddRange(products);
+                basket.Products.AddRange(new List<Product>()
+                {
+                    products.CreateProduct()
+                });
                 _baskets[index] = basket;
 
                 return basket;

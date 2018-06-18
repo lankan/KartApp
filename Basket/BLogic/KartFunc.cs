@@ -6,18 +6,18 @@ namespace ShoppingBasket.Logic
 {
     public class KartLogic : IKart
     {
-        private readonly IKart _kart;
+        private readonly IKartRepo _kartRepo;
 
-        public KartLogic(IKart repo)
+        public KartLogic(IKartRepo repo)
         {
-            _kart = repo;
+            _kartRepo = repo;
         }
 
         public Kart AddProducts(Guid basketId, Product products)
         {
             try
             {
-                var basket = _kart.GetBasket(basketId);
+                var basket = _kartRepo.GetBasket(basketId);
 
                 if (basket == null)
                 {
@@ -26,7 +26,7 @@ namespace ShoppingBasket.Logic
 
                 basket.Updated = DateTime.Now;
 
-                var updatedBasket = _kart.AddProducts(basketId, products);
+                var updatedBasket = _kartRepo.AddProducts(basketId, products);
 
                 return updatedBasket;
             }
@@ -36,11 +36,11 @@ namespace ShoppingBasket.Logic
             }
         }
 
-        public Kart CreateBasket(Kart basket)
+        public Kart CreateBasket()
         {
             try
             {
-                return _kart.CreateBasket(basket);
+                return _kartRepo.CreateBasket();
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace ShoppingBasket.Logic
         {
             try
             {
-                return _kart.GetBasket(id);
+                return _kartRepo.GetBasket(id);
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace ShoppingBasket.Logic
         {
             try
             {
-                return _kart.GetBaskets();
+                return _kartRepo.GetBaskets();
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace ShoppingBasket.Logic
         {
             try
             {
-                var basket = _kart.GetBasket(basketId);
+                var basket = _kartRepo.GetBasket(basketId);
 
                 if (basket == null)
                 {
@@ -85,7 +85,7 @@ namespace ShoppingBasket.Logic
 
                 basket.Updated = DateTime.Now;
 
-                var updatedBasket = _kart.RemoveProducts(basketId, products);
+                var updatedBasket = _kartRepo.RemoveProducts(basketId, products);
 
                 return updatedBasket;
             }
@@ -99,7 +99,7 @@ namespace ShoppingBasket.Logic
         {
             try
             {
-                var basket = _kart.GetBasket(basketId);
+                var basket = _kartRepo.GetBasket(basketId);
 
                 if (basket == null)
                 {
@@ -111,7 +111,7 @@ namespace ShoppingBasket.Logic
 
                 basket.Updated = DateTime.Now;
 
-                var updatedBasket = _kart.UpdateBasket(basket);
+                var updatedBasket = _kartRepo.UpdateBasket(basket);
 
                 return updatedBasket;
             }
@@ -125,7 +125,7 @@ namespace ShoppingBasket.Logic
         {
             try
             {
-                var basket = _kart.GetBasket(basketId);
+                var basket = _kartRepo.GetBasket(basketId);
 
                 if (basket == null)
                 {
@@ -155,7 +155,7 @@ namespace ShoppingBasket.Logic
 
                 basket.Updated = DateTime.Now;
 
-                var updatedBasket = _kart.UpdateBasket(basket);
+                var updatedBasket = _kartRepo.UpdateBasket(basket);
 
                 return updatedBasket;
             }

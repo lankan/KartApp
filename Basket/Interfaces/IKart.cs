@@ -8,7 +8,7 @@ namespace ShoppingBasket
     {
         Kart GetBasket(Guid id);
         List<Kart> GetBaskets();
-        Kart CreateBasket(Kart basket);
+        Kart CreateBasket();
         Kart AddProducts(Guid basketId, Product products);
         Kart RemoveProducts(Guid basketId, List<Product> products);
         Kart IncreaseProductQuantity(Guid basketId, Guid productId);

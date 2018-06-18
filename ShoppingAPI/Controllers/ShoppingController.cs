@@ -1,6 +1,7 @@
 ﻿using ShoppingAPI.Models;
 using ShoppingBasket;
 using ShoppingBasket.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Web.Http; 
 using System.Collections.Generic;
@@ -14,31 +15,17 @@ namespace ShoppingAPI.Controllers
     [System.Web.Http.Route("api/basket")]
     public class ShoppingController : ApiController
     {
-        private readonly IKartLogic _basketLogic;
-        private HttpResponseMessage reponse; 
+        private readonly IKart _basketLogic;
+        private readonly IProduct _product;
+        private readonly ILogger _logger;
 
-        public ShoppingController(IKartLogic basketLogic)
+
+        public ShoppingController(IKart basketLogic, IProduct product, ILogger<ShoppingController> logger)
         {
             _basketLogic = basketLogic;
+            _product = product;
+            _logger = logger; 
         }
-
-        #region Helpers
-
-        private Product CreateProductModelObject(Product model)
-        {
-            var product = new Product
-            {
-                ProductId = Guid.NewGuid(),
-                Name = model.Name,
-                Description = model.Description,
-                Price = model.Price,
-                Quantity = model.Quantity
-            };
-
-            return product;
-        }
-
-        #endregion
 
         [System.Web.Mvc.HttpGet]
         public IHttpActionResult Basket(Guid basketId)
@@ -56,6 +43,7 @@ namespace ShoppingAPI.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return NotFound(); 
             }
         }
@@ -78,12 +66,13 @@ namespace ShoppingAPI.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return BadRequest(); 
             }
         }
 
         [System.Web.Mvc.HttpPost]
-        public IHttpActionResult CreateBasket([FromBody]List<ProductModel> model)
+        public IHttpActionResult CreateBasket([FromBody]List<Models.ProductModel> model)
         {
             try
             {
@@ -96,25 +85,23 @@ namespace ShoppingAPI.Controllers
 
                 foreach (var item in model)
                 {
-                    products.Add(new Product
-                    {
-                        ProductId = Guid.NewGuid(),
-                        Name = item.Name,
-                        Description = item.Description,
-                        Price = item.Price,
-                        Quantity = item.Quantity
-                    });
+                    var newProduct = _product.CreateProduct();
+                    //
+                    newProduct.ProductId = Guid.NewGuid();
+                    newProduct.Name = item.Name;
+                    newProduct.Description = item.Description;
+                    newProduct.Quantity = item.Quantity;
+                    newProduct.Price = item.Price;
+                    //
+                    products.Add(newProduct); 
                 };
-
-                var basket = new Kart()
-                {
-                    BasketId = Guid.NewGuid(),
-                    Products = products,
-                    Added = DateTime.Now
-                };
-
-                var newBasket = _basketLogic.CreateBasket(basket);
-
+                //
+                Kart newBasket = _basketLogic.CreateBasket();
+                //
+                newBasket.BasketId = Guid.NewGuid();
+                newBasket.Added = DateTime.Now;
+                newBasket.Products = products;
+                //
                 if (newBasket == null)
                 {
                     return BadRequest();
@@ -124,12 +111,13 @@ namespace ShoppingAPI.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return BadRequest();
             }
         }
 
         [System.Web.Mvc.HttpPost]
-        public IHttpActionResult AddItem(Guid basketId, [FromBody] ProductModel product)
+        public IHttpActionResult AddItem(Guid basketId, [FromBody] Models.ProductModel product)
         {
             try
             {
@@ -137,17 +125,16 @@ namespace ShoppingAPI.Controllers
                 {
                     return BadRequest();
                 }
-
-                var Product = new Product
-                {
-                    ProductId = Guid.NewGuid(),
-                    Name = product.Name,
-                    Description = product.Description,
-                    Price = product.Price,
-                    Quantity = product.Quantity
-                };
-
-                var updatedBasket = _basketLogic.AddProducts(basketId, Product);
+                //
+                var newProduct = _product.CreateProduct();
+                //
+                newProduct.ProductId = Guid.NewGuid();
+                newProduct.Name = product.Name;
+                newProduct.Description = product.Description;
+                newProduct.Quantity = product.Quantity;
+                newProduct.Price = product.Price;
+                //
+                var updatedBasket = _basketLogic.AddProducts(basketId, newProduct);
 
                 if (updatedBasket == null)
                 {
@@ -163,7 +150,7 @@ namespace ShoppingAPI.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult EmptyBasket(Guid basketId)
+        public IHttpActionResult EmptyBasket(Guid basketId)
         {
             try
             {
@@ -178,19 +165,20 @@ namespace ShoppingAPI.Controllers
 
                 if (updatedBasket == null)
                 {
-                    return StatusCode(500);
+                    return BadRequest();
                 }
 
                 return Ok(updatedBasket);
             }
             catch (Exception ex)
             {
-                return StatusCode(500);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult RemoveItem(Guid basketId, Guid productId)
+        public IHttpActionResult RemoveItem(Guid basketId, Guid productId)
         {
             try
             {
@@ -208,26 +196,27 @@ namespace ShoppingAPI.Controllers
 
                 if (products.Count == 0)
                 {
-                    return NotFound(productId);
+                    return BadRequest();
                 }
 
                 var updatedBasket = _basketLogic.RemoveProducts(basketId, products);
 
                 if (updatedBasket == null)
                 {
-                    return StatusCode(500);
+                    return BadRequest();
                 }
 
                 return Ok(updatedBasket);
             }
             catch (Exception ex)
             {
-                return StatusCode(500);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult IncreaseQuantity(Guid basketId, Guid productId)
+        public IHttpActionResult IncreaseQuantity(Guid basketId, Guid productId)
         {
             try
             {
@@ -235,19 +224,20 @@ namespace ShoppingAPI.Controllers
 
                 if (updatedBasket == null)
                 {
-                    return StatusCode(500);
+                    return BadRequest();
                 }
 
                 return Ok(updatedBasket);
             }
             catch (Exception ex)
             {
-                return StatusCode(500);
+                _logger.LogError(ex.Message);
+                return BadRequest(); 
             }
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult ReduceQuantity(Guid basketId, Guid productId)
+        public IHttpActionResult ReduceQuantity(Guid basketId, Guid productId)
         {
             try
             {
@@ -255,14 +245,15 @@ namespace ShoppingAPI.Controllers
 
                 if (updatedBasket == null)
                 {
-                    return StatusCode(500);
+                    return BadRequest();
                 }
 
                 return Ok(updatedBasket);
             }
             catch (Exception ex)
             {
-                return StatusCode(500);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
